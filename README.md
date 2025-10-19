@@ -10,7 +10,7 @@ Turn live **facial expressions** into matching **emojis** on your webcam feed. T
 
 - **Live webcam app** that detects faces (OpenCV Haar cascade), classifies emotion with a Keras model, and overlays the corresponding emoji image on the frame in real time. :contentReference[oaicite:0]{index=0}  
 - **CNN training script** that builds and trains a 7-class emotion classifier on 48×48 face images using Keras, then saves a `.h5` model. :contentReference[oaicite:1]{index=1}  
-- **Emoji assets** expected in an `emojis/` folder (e.g., `happy.png`, `sad.png`, …) used by the overlay app. :contentReference[oaicite:2]{index=2}
+- **Emoji assets** expected in an `emojis/` folder (e.g., `happy.png`, `sad.png`, …) used by the overlay app. 
 
 ---
 
@@ -21,6 +21,6 @@ Turn live **facial expressions** into matching **emojis** on your webcam feed. T
 - **Training images:** 48×48 faces; script config uses `ImageDataGenerator(..., target_size=(48,48))`. 
 - **Inference (gui.py):** crops a face ROI, resizes to **48×48 grayscale**, scales to `[0,1]`, and predicts. 
 
-> **Heads-up:** `train.py` builds the model with `input_shape=(48,48,1)` (grayscale) but loads data with `color_mode='rgb'`. Either switch to `color_mode='grayscale'` in `train.py` **or** change the model input shape to `(48,48,3)` to match. :contentReference[oaicite:9]{index=9}
+> **Heads-up:** `train.py` builds the model with `input_shape=(48,48,1)` (grayscale) but loads data with `color_mode='rgb'`. Either switch to `color_mode='grayscale'` in `train.py` **or** change the model input shape to `(48,48,3)` to match. 
 
 
