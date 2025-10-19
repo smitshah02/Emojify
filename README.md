@@ -16,10 +16,10 @@ Turn live **facial expressions** into matching **emojis** on your webcam feed. T
 
 ## 🧱 Model & labels
 
-- **Architecture (train.py):** Conv2D + MaxPooling + Dropout blocks → Flatten → Dense(1024) → Dropout → Dense(7, softmax). :contentReference[oaicite:5]{index=5}  
-- **Classes (7):** `Angry, Disgusted, Fearful, Happy, Sad, Surprised, Neutral`. Order is used at inference to map model outputs → emoji files. :contentReference[oaicite:6]{index=6}  
-- **Training images:** 48×48 faces; script config uses `ImageDataGenerator(..., target_size=(48,48))`. :contentReference[oaicite:7]{index=7}  
-- **Inference (gui.py):** crops a face ROI, resizes to **48×48 grayscale**, scales to `[0,1]`, and predicts. :contentReference[oaicite:8]{index=8}
+- **Architecture (train.py):** Conv2D + MaxPooling + Dropout blocks → Flatten → Dense(1024) → Dropout → Dense(7, softmax). 
+- **Classes (7):** `Angry, Disgusted, Fearful, Happy, Sad, Surprised, Neutral`. Order is used at inference to map model outputs → emoji files. 
+- **Training images:** 48×48 faces; script config uses `ImageDataGenerator(..., target_size=(48,48))`. 
+- **Inference (gui.py):** crops a face ROI, resizes to **48×48 grayscale**, scales to `[0,1]`, and predicts. 
 
 > **Heads-up:** `train.py` builds the model with `input_shape=(48,48,1)` (grayscale) but loads data with `color_mode='rgb'`. Either switch to `color_mode='grayscale'` in `train.py` **or** change the model input shape to `(48,48,3)` to match. :contentReference[oaicite:9]{index=9}
 
